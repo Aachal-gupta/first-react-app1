@@ -32,7 +32,7 @@ export default function Text(props) {
             });
     };
 
-    const [text, setText] = useState("Enter any text here");
+    const [text, setText] = useState('');
 
     return (
         <>
@@ -50,7 +50,7 @@ export default function Text(props) {
 
             <div className="my-3">
                 <h1>Text Summary</h1>
-                <p>{text.split(" ").filter(word => word.length > 0).length} words : {text.length} characters</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0 }).length} words : {text.length} characters</p>
                 <h2>Preview</h2>
                 <p>{text}</p>
             </div>
