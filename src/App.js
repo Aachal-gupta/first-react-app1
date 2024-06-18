@@ -55,7 +55,7 @@ function App(){
         <div className="container my-3">
           <Routes>
             <Route exact path="/About" element={<About   mode={mode} />} />
-            <Route exact path="/TextUpdate" element={<Text heading="This is demo." mode={mode} />} />
+            <Route exact path="/TextUpdate" element={<Text heading="This is demo." mode={mode}   showAlert={showAlert} />} />
           </Routes>
         </div>
       </Router>

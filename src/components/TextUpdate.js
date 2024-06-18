@@ -21,15 +21,19 @@ export default function Text(props) {
     };
 
     const handleCopy = () => {
-        let textArea = document.getElementById("myBox");
-        textArea.select();
-        navigator.clipboard.writeText(textArea.value)
-            .then(() => {
-                console.log("Text copied to clipboard successfully!");
-            })
-            .catch((err) => {
-                console.error("Failed to copy text: ", err);
-            });
+                navigator.clipboard.writeText(text)
+               props.showAlert("text copied", "success");
+
+
+        // let textArea = document.getElementById("myBox");
+        // textArea.select();
+        // navigator.clipboard.writeText(textArea.value)
+            // .then(() => {
+            //     // console.log("Text copied to clipboard successfully!");
+            // })
+            // .catch((err) => {
+            //     // console.error("Failed to copy text: ", err);
+            // });
     };
 
     const [text, setText] = useState('');
@@ -45,12 +49,12 @@ export default function Text(props) {
                 <button className="btn btn-primary m-3" onClick={handleUppercaseClick}>Convert to Uppercase</button>
                 <button className="btn btn-primary m-3" onClick={handleLowercaseClick}>Convert to Lowercase</button>
                 <button className="btn btn-primary m-3" onClick={handleClearClick}>Clear Text</button>
-                <button className="btn btn-primary m-3" onClick={handleCopy}>Copy Text</button>
+                <button className="btn btn-primary m-3" onClick={handleCopy}  >Copy Text</button>
           
 
             <div className="my-3">
                 <h1>Text Summary</h1>
-                <p>{text.split(" ").filter((element)=>{return element.length!==0 }).length} words : {text.length} characters</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0 }).length} words and  {text.length} characters</p>
                 <h2>Preview</h2>
                 <p>{text}</p>
             </div>
